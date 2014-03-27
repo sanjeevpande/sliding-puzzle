@@ -17,15 +17,15 @@ var tempObj;
 
 for(var i = 0; i < tdElements.length; i++){
 
-	var s = document.createElement('span');
+	/*var s = document.createElement('span');
 	s.className = tempArray[i];
-	s.innerHTML = tempArray[i]
+	s.innerHTML = tempArray[i]*/
 	if(tempArray[i] === 9){
 		tdElements[i].addEventListener('click', clickHandler, false);
 		tdElements[i].id = "empty";
 		continue;
 	}
-	tdElements[i].appendChild(s);
+	tdElements[i].innerHTML = tempArray[i];
 	tdElements[i].addEventListener('click', clickHandler, false);
 }
 

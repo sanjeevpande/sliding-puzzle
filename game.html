@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Puzzle Game</title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body>
+
+	<div id="index">
+
+		<p>
+			Enter the difficulty Level
+		</p>
+
+		
+		<input type="radio" name="difficulty" id="easy" value="3"/>
+		<label for="easy">Easy</label> <br>
+
+		
+		<input type="radio" name="difficulty" id="med" value="4"/>
+		<label for="med">Medium</label> <br>
+
+		
+		<input type="radio" name="difficulty" id="hard" value="5"/>
+		<label for="hard">Hard</label> <br>
+
+		<input type="button" value="Start Game" id="start"/>
+		
+
+	</div>
+
+	<div id="boardDiv" class="hide">
+		<table id="board">
+
+			
+
+		</table>
+	</div>
+
+
+	<script type="text/javascript" src="event.js"></script>
+	<script type="text/javascript" src="controller.js"></script>
+	<script type="text/javascript" src="board.js"></script>
+	<script type="text/javascript" src="game.js"></script> 
+</body>
+</html>
