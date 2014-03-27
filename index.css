@@ -1,0 +1,20 @@
+#board{
+	height: 400px;
+	width: 400px;
+	margin-left: 30%;
+	margin-top: 12%;
+	box-shadow: 1px 1px 20px blue;
+	border-color:#0A1433;
+}
+span{
+	position: absolute;
+	margin-left: 50px;
+	margin-top: -20px;
+	font-size: 32px;
+	opacity: 1;
+	font-weight: bold;
+
+}
+td{
+	background-color: #6C7285;
+}
