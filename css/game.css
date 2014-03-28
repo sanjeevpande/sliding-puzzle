@@ -1,0 +1,107 @@
+#board {
+	margin-left: 30%;
+	margin-top: 12%;
+	border-color:#0A1433;
+
+}
+
+.cell {
+	background-color: #6C7285;
+	cursor: pointer;
+	font-size: 32px;
+	font-weight: bold;
+	padding-left: 35px;
+	padding-right: 35px;
+	padding-top: 10px;
+	height: 75px;
+	width: 30px;
+}
+
+#header {
+	color: #445C49;
+	font-family: cursive;
+	left: 39%;
+	position: absolute;
+	top: 12%;
+}
+
+.hide {
+	display: none;
+}
+
+#index {
+	border: 1px solid;
+	font-size: 18px;
+	height: 225px;
+	left: 34%;
+	padding-left: 71px;
+	padding-top: 15px;
+	position: absolute;
+	top: 35%;
+	width: 300px;
+
+}
+
+#start,#newGame {
+	background-color: #51a351;
+	border-radius: 10px;
+	box-shadow: 1px 1px 10px inset;
+	font-family: Comic Sans MS;
+	padding: 6px;
+}
+
+#start {
+	margin-top: 20px;
+}
+
+#start:hover,#newGame:hover{
+	background-color: orange;
+	-webkit-transform : scale(1.2);
+	-moz-transform : scale(1.2);
+	transform : scale(1.2);
+}
+
+#newGame {
+
+	left: 90%;
+	position: absolute;
+	top: 33%;
+}
+
+.animate {
+	-webkit-animation: myAnimation 0.15s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-play-state: running;
+	-moz-animation: myfirst 0.15s;
+	-moz-animation-timing-function: linear;
+	-moz-animation-direction: alternate;
+	-moz-animation-play-state: running;
+	animation: myfirst 0.15s;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+	animation-play-state: running;
+	background-color: red;
+	border-radius: 15px;
+	box-shadow: 0 0 30px inset;
+}
+
+@-webkit-keyframes myAnimation
+{
+	0%   {-webkit-transform: rotateX(-40deg);}
+	100% {-webkit-transform: rotateX(40deg)}
+}
+
+@-moz-keyframes myAnimation
+{
+	0%   {-moz-transform: rotateX(-40deg);
+		background-color: yellow;
+		}
+	100% {-moz-transform: rotateX(40deg)}
+}
+
+@-keyframes myAnimation
+{
+	0%   {transform: rotateX(-40deg);}
+	100% {transform: rotateX(40deg)}
+}

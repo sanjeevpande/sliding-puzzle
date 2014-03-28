@@ -1,13 +1,15 @@
-var game = (function () {
+var puzzleApp = window.puzzleApp || {};
+
+puzzleApp.game = (function () {
 	
-	var getNumbers = function(totalGrids) {
+	var getNumbers = function(totalCells) {
 
 		var tempArray = [],
 			randomN;
 
-		while(tempArray.length !== totalGrids) {
+		while(tempArray.length !== totalCells) {
 
-			var randomN = Math.floor((Math.random() * totalGrids) + 1);
+			var randomN = Math.floor((Math.random() * totalCells) + 1);
 
 			if(tempArray.indexOf(randomN) === -1){
 				tempArray.push(randomN);
@@ -18,7 +20,25 @@ var game = (function () {
 	};
 
 	var _getChildrenAsArray = function(elem) {
-		return Array.prototype.slice.call( elem.children, 0);
+
+		var arr,
+			children = elem.children;
+
+		try {
+			arr = Array.prototype.slice.call( children, 0);
+		}
+		catch(e) {
+
+			var i, length = children.length;
+			arr = [];
+
+			for(i = 0; i < children.length; i++) {
+				arr.push(children[i]);
+			}
+		}
+
+		return arr;
+		
 	};
 
 	var _getPrevBox = function(clickedRowChildren, clickedColumnIndex) {
@@ -34,7 +54,7 @@ var game = (function () {
 
 	var _getNextBox = function(clickedRowChildren, clickedColumnIndex) {
 
-			if(clickedColumnIndex + 1 < diff) {
+			if(clickedColumnIndex + 1 < puzzleApp.boardDimension) {
 				return clickedRowChildren[clickedColumnIndex + 1];	
 			}
 			else {
@@ -61,7 +81,7 @@ var game = (function () {
 
 	var _getLowerBox = function(rowList,clickedRowIndex,clickedColumnIndex) {
 
-			if(clickedRowIndex < diff - 1) {
+			if(clickedRowIndex < puzzleApp.boardDimension - 1) {
 
 				var lowerRow = rowList[clickedRowIndex + 1],
 					lowerRowChildren = _getChildrenAsArray(lowerRow);

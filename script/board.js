@@ -1,20 +1,18 @@
-var board = (function() {
+var puzzleApp = window.puzzleApp || {};
+
+puzzleApp.board = (function() {
 
 	var makeBoard = function(dimension) {
 
-		var totalGrids = dimension * dimension,
-			i,j,row,col,fragment;
-
-		document.getElementById("index").className = "hide";
-		document.getElementById("boardDiv").className = "";	
+		var	i,j,row,col,fragment;
 
 		fragment = document.createDocumentFragment();	
 
-		for(i = 0;i<dimension;i++) {
+		for(i = 0; i < dimension; i++) {
 
 			row = document.createElement("tr");
 
-			for(j = 0;j<dimension;j++) {
+			for(j = 0; j < dimension; j++) {
 				col = document.createElement("td");
 				row.appendChild(col);
 			}
@@ -23,8 +21,8 @@ var board = (function() {
 
 		}
 
+		this.showBoard();
 		var board = document.getElementById("board");
-		board.innerHTML = "";
 		board.appendChild(fragment);
 
 	};
@@ -72,20 +70,36 @@ var board = (function() {
 
 	};
 
+	var showBoard = function() {
+		document.getElementById("index").className = "hide";
+		document.getElementById("header").className = "hide";
+		document.getElementById("boardDiv").className = "";	
+	};
+
+	var showIndex = function() {
+
+		document.getElementById("boardDiv").className = "hide";
+		document.getElementById("index").className = "";	
+		document.getElementById("header").className = "";
+	};
+
 	var onMovableFalse = function(clickedCell) {
 
 		var presentClasses = clickedCell.className;
-		clickedCell.className += " animate";
-		setTimeout(function(){
-			clickedCell.className = presentClasses;
-		}, 150);
-
+		if(!(presentClasses.indexOf("animate") >= 0)) {
+			clickedCell.className =presentClasses + " animate";
+			setTimeout(function(){
+				clickedCell.className = presentClasses;
+			}, 150);	
+		}
 	};
 
 	return {
 		makeBoard : makeBoard,
 		placeNumbers : placeNumbers,
 		moveCells : moveCells,
+		showBoard : showBoard,
+		showIndex :showIndex,
 		onMovableFalse : onMovableFalse
 	};
 
